@@ -1,0 +1,6 @@
+framework module Pods_CachedMap {
+  umbrella header "Pods-CachedMap-umbrella.h"
+
+  export *
+  module * { export * }
+}
