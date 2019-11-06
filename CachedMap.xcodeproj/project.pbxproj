@@ -8,19 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		CF1D2036B7D8B6A495056525 /* Pods_CachedMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E558D4812EEE06D9F618F099 /* Pods_CachedMap.framework */; };
+		F453BA912373024700B74E6F /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F453BA8F2373024700B74E6F /* CoreData.xcdatamodeld */; };
+		F453BA93237302DB00B74E6F /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = F453BA92237302DB00B74E6F /* Person.swift */; };
 		F4FA644E2372BC160045FB9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FA644D2372BC160045FB9A /* AppDelegate.swift */; };
 		F4FA64502372BC160045FB9A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FA644F2372BC160045FB9A /* SceneDelegate.swift */; };
 		F4FA64522372BC160045FB9A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FA64512372BC160045FB9A /* ViewController.swift */; };
 		F4FA64572372BC180045FB9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4FA64562372BC180045FB9A /* Assets.xcassets */; };
 		F4FA645A2372BC180045FB9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4FA64582372BC180045FB9A /* LaunchScreen.storyboard */; };
-		F4FA64632372C78D0045FB9A /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F4FA64612372C78D0045FB9A /* CoreData.xcdatamodeld */; };
-		F4FA64652372CBF20045FB9A /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FA64642372CBF20045FB9A /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		07BFD883FA555E250789B37D /* Pods-CachedMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CachedMap.debug.xcconfig"; path = "Target Support Files/Pods-CachedMap/Pods-CachedMap.debug.xcconfig"; sourceTree = "<group>"; };
 		522C1356086778069DD780F6 /* Pods-CachedMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CachedMap.release.xcconfig"; path = "Target Support Files/Pods-CachedMap/Pods-CachedMap.release.xcconfig"; sourceTree = "<group>"; };
 		E558D4812EEE06D9F618F099 /* Pods_CachedMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CachedMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F453BA902373024700B74E6F /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
+		F453BA92237302DB00B74E6F /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		F4FA644A2372BC160045FB9A /* CachedMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CachedMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4FA644D2372BC160045FB9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4FA644F2372BC160045FB9A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,8 +30,6 @@
 		F4FA64562372BC180045FB9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4FA64592372BC180045FB9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F4FA645B2372BC180045FB9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F4FA64622372C78D0045FB9A /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
-		F4FA64642372CBF20045FB9A /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,8 +88,8 @@
 				F4FA64562372BC180045FB9A /* Assets.xcassets */,
 				F4FA64582372BC180045FB9A /* LaunchScreen.storyboard */,
 				F4FA645B2372BC180045FB9A /* Info.plist */,
-				F4FA64612372C78D0045FB9A /* CoreData.xcdatamodeld */,
-				F4FA64642372CBF20045FB9A /* Person.swift */,
+				F453BA8F2373024700B74E6F /* CoreData.xcdatamodeld */,
+				F453BA92237302DB00B74E6F /* Person.swift */,
 			);
 			path = CachedMap;
 			sourceTree = "<group>";
@@ -106,6 +106,7 @@
 				F4FA64472372BC160045FB9A /* Frameworks */,
 				F4FA64482372BC160045FB9A /* Resources */,
 				339E1D9EA9CA512181D9DEF5 /* [CP] Embed Pods Frameworks */,
+				13CFE2E03744D265CB83AED5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -162,6 +163,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		13CFE2E03744D265CB83AED5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CachedMap/Pods-CachedMap-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CachedMap/Pods-CachedMap-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CachedMap/Pods-CachedMap-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		339E1D9EA9CA512181D9DEF5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -208,8 +226,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4FA64652372CBF20045FB9A /* Person.swift in Sources */,
-				F4FA64632372C78D0045FB9A /* CoreData.xcdatamodeld in Sources */,
+				F453BA93237302DB00B74E6F /* Person.swift in Sources */,
+				F453BA912373024700B74E6F /* CoreData.xcdatamodeld in Sources */,
 				F4FA64522372BC160045FB9A /* ViewController.swift in Sources */,
 				F4FA644E2372BC160045FB9A /* AppDelegate.swift in Sources */,
 				F4FA64502372BC160045FB9A /* SceneDelegate.swift in Sources */,
@@ -406,12 +424,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		F4FA64612372C78D0045FB9A /* CoreData.xcdatamodeld */ = {
+		F453BA8F2373024700B74E6F /* CoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				F4FA64622372C78D0045FB9A /* CoreData.xcdatamodel */,
+				F453BA902373024700B74E6F /* CoreData.xcdatamodel */,
 			);
-			currentVersion = F4FA64622372C78D0045FB9A /* CoreData.xcdatamodel */;
+			currentVersion = F453BA902373024700B74E6F /* CoreData.xcdatamodel */;
 			path = CoreData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

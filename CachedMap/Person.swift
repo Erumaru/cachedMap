@@ -8,14 +8,13 @@
 
 import Foundation
 import CoreData
-import RealmSwift
 
 public class Person: NSManagedObject {
-    @NSManaged public var name: String
-    @NSManaged public var age: Int64
+    @NSManaged var name: String
+    @NSManaged var age: Int64
 }
 
-public class RealmPerson: Object {
-    @objc dynamic var name = ""
-    @objc dynamic var age = 0
+public class Place: NSManagedObject {
+    @NSManaged var longitude: Double
+    @NSManaged var latitude: Double
 }

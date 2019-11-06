@@ -8,12 +8,21 @@
 
 import UIKit
 import CoreData
-import RealmSwift
+import SnapKit
+import GoogleMaps
 
 class ViewController: UIViewController {
 
     // MARK: - Variables
-    let realm = try! Realm()
+    
+    // MARK: - Outlets
+    lazy var mapView: GMSMapView = {
+        let cameraPosition = GMSCameraPosition(latitude: 43.238643, longitude: 76.933594, zoom: 13)
+        let view = GMSMapView(frame: .zero, camera: cameraPosition)
+        view.delegate = self
+        
+        return view
+    }()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -21,40 +30,45 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         markup()
-        saveData()
-        fetchData()
+//        saveData()
+//        fetchData()
+        printMapData()
     }
     
     // MARK: - Configurations
-    private func saveData() {
-        realm.beginWrite()
-        for age in 1..<100 {
-            let person = Person(context: AppDelegate.persistentContainer.viewContext)
-            person.name = "Abzal"
-            person.age = Int64(age)
-            try? AppDelegate.persistentContainer.viewContext.save()
+    private func printMapData() {
+        let request = NSFetchRequest<Place>(entityName: "Place")
+        do {
+            let data =  try AppDelegate.persistentContainer.viewContext.fetch(request)
             
-            let realmPerson = RealmPerson()
-            realmPerson.name = "Abzal"
-            realmPerson.age = age
-            realm.add(realmPerson)
+            print("$$$$$$$$$$$$$$$$$$$$$$")
+            print(data.map { "\($0.longitude) \($0.latitude)" })
+            print("$$$$$$$$$$$$$$$$$$$$$$")
+        } catch {
+            print(error)
         }
-        try? realm.commitWrite()
+    }
+    
+    private func saveData() {
+        for age in 1...100 {
+            let person = Person(context: AppDelegate.persistentContainer.viewContext)
+            person.name = "Dana"
+            person.age = Int64(age)
+            do {
+                try AppDelegate.persistentContainer.viewContext.save()
+            } catch {
+                print(error)
+            }
+        }
+        
     }
     
     private func fetchData() {
-        print("Realm:")
-        let persons = realm.objects(RealmPerson.self).filter("(age > 98) AND (name contains 'A')", "Abzal")
-        print(persons.compactMap { return "\($0.name) \($0.age)" })
-        
+        let request = NSFetchRequest<Person>(entityName: "Person")
+        request.predicate = NSPredicate(format: "age > 999")
         do {
-            let request = NSFetchRequest<Person>(entityName: "Person")
-            let predicate = NSPredicate(format: "(age > 75 AND age < 78) AND (name contains 'A')", "Abzal")
-            request.predicate = predicate
-            
             let persons = try AppDelegate.persistentContainer.viewContext.fetch(request)
             
-            print("CoreData:")
             print(persons.map { "\($0.name) \($0.age)" })
         } catch {
             print(error)
@@ -65,7 +79,21 @@ class ViewController: UIViewController {
     private func markup() {
         view.backgroundColor = .red
         
+        [mapView].forEach { view.addSubview($0) }
         
+        mapView.snp.makeConstraints() {
+            $0.edges.equalToSuperview()
+        }
     }
 }
 
+extension ViewController: GMSMapViewDelegate {
+    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
+        let place = Place(context: AppDelegate.persistentContainer.viewContext)
+        place.latitude = coordinate.latitude
+        place.longitude = coordinate.longitude
+        try? AppDelegate.persistentContainer.viewContext.save()
+        
+        print("\(coordinate.longitude) \(coordinate.latitude)")
+    }
+}

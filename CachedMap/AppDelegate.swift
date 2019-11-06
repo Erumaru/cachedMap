@@ -8,9 +8,11 @@
 
 import UIKit
 import CoreData
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
     static var persistentContainer: NSPersistentContainer = {
 
         let container = NSPersistentContainer(name: "CoreData")
@@ -20,11 +22,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 fatalError("Unresolved error, \((error as NSError).userInfo)")
             }
         })
+        
         return container
     }()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        GMSServices.provideAPIKey("AIzaSyBCZ-gswRgUvPs3pUbONAURdn0ju0at9i0")
+        
         return true
     }
 

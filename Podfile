@@ -7,7 +7,7 @@ target 'CachedMap' do
   use_frameworks!
    
   pod 'SnapKit'
-  pod 'RealmSwift'
+  pod 'GoogleMaps'
 
   # Pods for CachedMap
 
